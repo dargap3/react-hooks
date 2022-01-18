@@ -1,18 +1,14 @@
-// useEffect: persistent state
+// useEffect: lazy state initialization
 // http://localhost:3000/isolated/exercise/02.js
 
 import * as React from 'react'
 
 function Greeting({initialName = ''}) {
-  // 🐨 initialize the state to the value from localStorage
-  // 💰 window.localStorage.getItem('name') ?? initialName
+  /* React’s useState hook allows you to pass a function instead of the actual value, and then it will only call that function to get the state value when the component is rendered the first time */
   const [name, setName] = React.useState(
-    window.localStorage.getItem('name') ?? initialName,
+    () => window.localStorage.getItem('name') ?? initialName,
   )
 
-  // 🐨 Here's where you'll use `React.useEffect`.
-  // The callback should set the `name` in localStorage.
-  // 💰 window.localStorage.setItem('name', name)
   React.useEffect(() => {
     window.localStorage.setItem('name', name)
   })
