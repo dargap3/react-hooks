@@ -1,11 +1,11 @@
 // Lifting state
 // 💯 colocating state
 // http://localhost:3000/isolated/final/03.extra-1.js
-
 import * as React from 'react'
 
 function Name() {
   const [name, setName] = React.useState('')
+
   return (
     <div>
       <label htmlFor="name">Name: </label>
@@ -33,14 +33,15 @@ function Display({animal}) {
 
 function App() {
   const [animal, setAnimal] = React.useState('')
-
   return (
     <form>
       <Name />
+
       <FavoriteAnimal
         animal={animal}
         onAnimalChange={event => setAnimal(event.target.value)}
       />
+
       <Display animal={animal} />
     </form>
   )
