@@ -4,7 +4,7 @@
 import * as React from 'react'
 import {useLocalStorageState} from '../utils'
 
-function Board({onClick, squares}) {
+function Board({squares, onClick}) {
   function renderSquare(i) {
     return (
       <button className="square" onClick={() => onClick(i)}>
